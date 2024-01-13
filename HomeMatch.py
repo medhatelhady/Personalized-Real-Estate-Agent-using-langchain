@@ -12,7 +12,7 @@ from langchain import LLMChain
 from langchain.memory import ConversationSummaryMemory, ChatMessageHistory
 
 import os
-os.environ["OPENAI_API_KEY"] ="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"
+os.environ["OPENAI_API_KEY"] =""
 
 
 personal_questions = [   
