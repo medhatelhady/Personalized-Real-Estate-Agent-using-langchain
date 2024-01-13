@@ -49,7 +49,7 @@ history = ChatMessageHistory()
 history.add_user_message(f"""You are AI sales assisstant that will recommend user a home based on their answers to personal questions. Ask user {len(personal_questions)} questions""")
 for i in range(len(personal_questions)):
     history.add_ai_message(personal_questions[i])
-    history.add_user_message(input('\nanswer: '))
+    history.add_user_message(input(personal_questions[i]+'\nanswer: '))
     
 history.add_ai_message("""Now tell me a summary of a home you're considering in points""")
 memory = ConversationSummaryMemory(
@@ -67,7 +67,7 @@ prompt=PromptTemplate(
     template="You are an sales assistant who buy homes. Use the following pieces of retrieved context and customer prefrences to provide the customer with information about available home. Use five sentences maximum and keep the answer attractive. \nContext: {context} \nCustomer's prefernced: {chat_history} \nQuestion: {question}\nAnswer:",
     input_variables=['context', 'chat_history', 'question']
     )
-print(prompt)
+
 # create question and answer model to retrieve answers from retrived information
 chain_type_kwargs = {'prompt': prompt}
 
